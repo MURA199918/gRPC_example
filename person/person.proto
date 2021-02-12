@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package person;
+
+message PersonRequest {
+    int32 id = 1;
+    string name = 2;
+    string email = 3;
+    string phone = 4;
+
+    message Address {
+        string street = 1;
+        string city = 2;
+        string state = 3;
+        string zip = 4;
+        bool isShippingAddress = 5;
+    }
+    
+    repeated Address addresses = 5;
+}
+
+message PersonResponse {
+    int32 id = 1;
+    bool success = 2;
+}
+
+message PersonFilter {
+    string keyword = 1;
+}
